@@ -68,31 +68,31 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/locationText2"
+            android:id="@+id/status2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fill_level"
             android:layout_marginStart="10dp"
             android:layout_marginTop="-1dp"
             android:layout_toEndOf="@+id/img1"
-            android:text="Location:"
+            android:text="Bin Status:"
             android:textColor="#000"
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/locationText"
-            android:layout_width="176dp"
+            android:id="@+id/status"
+            android:layout_width="162dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fill_level"
-            android:layout_marginStart="118dp"
+            android:layout_marginStart="132dp"
             android:layout_marginTop="-1dp"
             android:layout_toEndOf="@+id/img1"
-            android:text="@string/location"
+            android:text="@string/status"
             android:textColor="#000"
             android:textSize="25sp" />
 
         <LinearLayout
-            android:layout_below="@+id/locationText"
+            android:layout_below="@+id/status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">

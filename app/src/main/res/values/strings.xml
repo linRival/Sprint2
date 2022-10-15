@@ -14,7 +14,7 @@
     <string name="btnEdit">Edit</string>
     <string name="fill_level">Fill Level</string>
     <string name="bin_number">Bin Number</string>
-    <string name="location">Location</string>
+    <string name="status">Bin Status</string>
     <string name="edit">Edit</string>
     <string name="view_details">View Details</string>
     <string name="search">Search</string>

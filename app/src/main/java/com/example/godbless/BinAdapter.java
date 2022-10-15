@@ -1,15 +1,8 @@
 package com.example.godbless;
 
-import static android.content.ContentValues.TAG;
-
-import static androidx.core.content.ContextCompat.startActivity;
-
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.PorterDuff;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -55,7 +46,7 @@ public class BinAdapter extends FirebaseRecyclerAdapter<BinModel,BinAdapter.myVi
         int value;
        holder.binNo.setText(model.getBin_number());
        holder.fillLevel.setText(model.getFill_level());
-       holder.location.setText(model.getLocation());
+       holder.binStatus.setText(model.getLocation());
        filllevel = model.getFill_level();
        value = Integer.parseInt(filllevel);
 
@@ -90,6 +81,11 @@ public class BinAdapter extends FirebaseRecyclerAdapter<BinModel,BinAdapter.myVi
                     .error(R.drawable.red)
                     .into(holder.img);
         }
+
+        if (value <= 75)
+            holder.binStatus.setText(R.string.fillLevelLow);
+        else
+            holder.binStatus.setText(R.string.fillLevelHigh);
 
 
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
@@ -197,7 +193,7 @@ public class BinAdapter extends FirebaseRecyclerAdapter<BinModel,BinAdapter.myVi
         CircleImageView img;
         TextView binNo;
         TextView fillLevel;
-        TextView location;
+        TextView binStatus;
 
         Button btnEdit, btnDelete, btnView;
 
@@ -207,7 +203,7 @@ public class BinAdapter extends FirebaseRecyclerAdapter<BinModel,BinAdapter.myVi
             img = itemView.findViewById(R.id.img1);
             binNo = itemView.findViewById(R.id.bin_number);
             fillLevel = itemView.findViewById(R.id.fill_level);
-            location = itemView.findViewById(R.id.locationText);
+            binStatus = itemView.findViewById(R.id.status);
 
             btnEdit = (Button)itemView.findViewById(R.id.btnEdit);
             btnDelete = (Button)itemView.findViewById(R.id.btnDelete);

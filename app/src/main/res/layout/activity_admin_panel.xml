@@ -38,9 +38,7 @@
                     android:text="Garbage Monitoring App"
                     android:textColor="#ffffff"
                     android:textSize="35sp"
-                    android:textStyle="bold">
-
-                </TextView>
+                    android:textStyle="bold"></TextView>
             </LinearLayout>
 
             <LinearLayout
