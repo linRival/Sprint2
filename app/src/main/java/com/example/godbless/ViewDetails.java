@@ -33,7 +33,10 @@ public class ViewDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.view_details);
+        setContentView(R.layout.view_details2);
+        getSupportActionBar().setTitle("View Details");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         TextView binNumberValue = findViewById(R.id.binNumberValue);
         TextView binStatusValue = findViewById(R.id.binStatusValue);

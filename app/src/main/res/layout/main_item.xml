@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="6dp"
     android:elevation="6dp"
+    app:cardBackgroundColor="#EBFCFB"
+    app:cardCornerRadius="6dp"
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
@@ -13,12 +14,12 @@
         android:padding="15dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img1"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@mipmap/ic_launcher"
-            android:id="@+id/img1"
-            app:civ_border_width="2dp"
-            app:civ_border_color="#FF000000"/>
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
 
 
         <TextView
@@ -92,9 +93,9 @@
             android:textSize="25sp" />
 
         <LinearLayout
-            android:layout_below="@+id/status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/status"
             android:orientation="horizontal">
 
             <Button
@@ -102,6 +103,7 @@
                 android:layout_width="173dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
+                android:background="@drawable/button_background_green1"
                 android:text="@string/edit"
                 android:textAllCaps="false" />
 
@@ -110,6 +112,7 @@
                 android:layout_width="173dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
+                android:background="@drawable/button_background_green1"
                 android:text="@string/view_details"
                 android:textAllCaps="false" />
 
@@ -117,7 +120,6 @@
 
 
     </RelativeLayout>
-
 
 
 </androidx.cardview.widget.CardView>

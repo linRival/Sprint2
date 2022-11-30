@@ -1,8 +1,14 @@
 package com.example.godbless;
 
+import static android.content.ContentValues.TAG;
+
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +28,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -46,19 +54,17 @@ public class BinAdapter extends FirebaseRecyclerAdapter<BinModel,BinAdapter.myVi
         int value;
        holder.binNo.setText(model.getBin_number());
        holder.fillLevel.setText(model.getFill_level());
-       holder.binStatus.setText(model.getLocation());
-       filllevel = model.getFill_level();
-       value = Integer.parseInt(filllevel);
-
-
+       holder.binStatus.setText(model.getStatus());
+        filllevel = model.getFill_level();
+        value = Integer.parseInt(filllevel);
 
         if (value <= 25) {
-        Glide.with(holder.img.getContext())
-               .load(model.getSurl())
-               .placeholder(R.drawable.green)
-               .circleCrop()
-               .error(R.drawable.green)
-               .into(holder.img);
+            Glide.with(holder.img.getContext())
+                    .load(model.getSurl())
+                    .placeholder(R.drawable.green)
+                    .circleCrop()
+                    .error(R.drawable.green)
+                    .into(holder.img);
         }else if (value <= 50) {
             Glide.with(holder.img.getContext())
                     .load(model.getSurl())
@@ -93,15 +99,18 @@ public class BinAdapter extends FirebaseRecyclerAdapter<BinModel,BinAdapter.myVi
             public void onClick(View view) {
 
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
-                        .setContentHolder(new ViewHolder(R.layout.update_popup))
-                        .setExpanded(true,1200)
+                        .setContentHolder(new ViewHolder(R.layout.update_popup2))
+                        .setContentBackgroundResource(android.R.color.transparent)
+                        .setExpanded(true,1800)
                         .create();
 
-                //dialogPlus.show();
 
                 View view1 = dialogPlus.getHolderView();
                 EditText binNo = view1.findViewById(R.id.txtBinNo);
                 EditText fillLevel = view1.findViewById(R.id.txtFillLevel);
+                EditText latitude = view1.findViewById(R.id.txtLatitude);
+                EditText longitude = view1.findViewById(R.id.txtLongitude);
+
 
                 Button btnEdit = view1.findViewById((R.id.btnUpdate));
                 Button btnDelete = view1.findViewById((R.id.btnDelete));
@@ -118,6 +127,10 @@ public class BinAdapter extends FirebaseRecyclerAdapter<BinModel,BinAdapter.myVi
                         Map<String,Object> map = new HashMap<>();
                         map.put("bin_number",binNo.getText().toString());
                         map.put("fill_level",fillLevel.getText().toString());
+                        map.put("latitude",latitude.getText().toString());
+                        map.put("longitude",longitude.getText().toString());
+
+
 
                         FirebaseDatabase.getInstance().getReference().child("Bins")
                                 .child(getRef(holder.getBindingAdapterPosition()).getKey()).updateChildren(map)
@@ -193,6 +206,8 @@ public class BinAdapter extends FirebaseRecyclerAdapter<BinModel,BinAdapter.myVi
         CircleImageView img;
         TextView binNo;
         TextView fillLevel;
+        TextView latitude;
+        TextView longitude;
         TextView binStatus;
 
         Button btnEdit, btnDelete, btnView;
@@ -203,6 +218,8 @@ public class BinAdapter extends FirebaseRecyclerAdapter<BinModel,BinAdapter.myVi
             img = itemView.findViewById(R.id.img1);
             binNo = itemView.findViewById(R.id.bin_number);
             fillLevel = itemView.findViewById(R.id.fill_level);
+            latitude = itemView.findViewById(R.id.latitude);
+            longitude = itemView.findViewById(R.id.longitude);
             binStatus = itemView.findViewById(R.id.status);
 
             btnEdit = (Button)itemView.findViewById(R.id.btnEdit);

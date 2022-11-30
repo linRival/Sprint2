@@ -23,10 +23,12 @@
         </activity>
         <activity
             android:name=".ViewDetails"
+            android:parentActivityName=".BinList"
             android:exported="false">
         </activity>
         <activity
             android:name=".BinList"
+            android:parentActivityName=".UserPanel"
             android:exported="false">
         </activity>
         <activity

@@ -5,60 +5,63 @@
     android:onClick="hideKeyboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BFF6F3"
-    android:orientation="vertical"
-    tools:context="com.example.godbless.AddActivity">
+    android:background="@drawable/rounded_corner">
+
+
     <TextView
-        android:layout_width="275dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:text="Add New Record"
-        android:textColor="#05ACA3"
-        android:textSize="64sp"
+        android:layout_width="205dp"
+        android:layout_height="52dp"
+        android:text="Edit Details"
+        android:textColor="@color/lgreen"
+        android:textSize="40sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.577" />
 
     <View
-        android:id="@+id/divider3"
+        android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.338" />
+        app:layout_constraintVertical_bias="0.197" />
 
     <ImageView
         android:id="@+id/rounded_bg"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/rounded_corner3"
+        android:src="@drawable/rounded_corner2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/divider3"
+        app:layout_constraintTop_toTopOf="@id/divider"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="233dp"
-        android:layout_height="169dp"
-        android:layout_marginTop="188dp"
+        android:id="@+id/imageView4"
+        android:layout_width="168dp"
+        android:layout_height="119dp"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bin2" />
+        app:layout_constraintVertical_bias="0.144"
+        app:srcCompat="@drawable/bin1" />
 
     <TextView
-        android:id="@+id/numbin2"
+        android:id="@+id/numbin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Bin Number"
         android:textSize="20sp"
@@ -66,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <EditText
         android:id="@+id/txtBinNo"
@@ -77,10 +80,13 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/curve"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/numbin2" />
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@+id/numbin" />
+
 
     <TextView
-        android:id="@+id/levelfill2"
+        android:id="@+id/levelfill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -88,7 +94,8 @@
         android:text="Fill Level"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/txtBinNo" />
+        app:layout_constraintTop_toBottomOf="@+id/txtBinNo"
+        tools:layout_editor_absoluteX="29dp" />
 
     <EditText
         android:id="@+id/txtFillLevel"
@@ -99,10 +106,12 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/curve"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/levelfill2" />
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@+id/levelfill" />
 
     <TextView
-        android:id="@+id/latitude2"
+        android:id="@+id/latitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -110,93 +119,88 @@
         android:text="Latitude"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/txtFillLevel"/>
+        app:layout_constraintTop_toBottomOf="@+id/txtFillLevel" />
 
     <EditText
         android:id="@+id/txtLatitude"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:background="@drawable/curve"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/latitude2"/>
+        android:imeOptions="actionDone"
+        android:inputType="numberSigned|numberDecimal"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@+id/latitude"
+        tools:layout_editor_absoluteX="10dp" />
 
     <TextView
-        android:id="@+id/longitude2"
+        android:id="@+id/longitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Latitude"
+        android:text="Longitude"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/txtLatitude"/>
+        app:layout_constraintTop_toBottomOf="@id/txtLatitude"/>
 
     <EditText
         android:id="@+id/txtLongitude"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/curve"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/longitude2"/>
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@+id/longitude"/>
 
     <View
         android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/txtLongitude"
-        tools:layout_editor_absoluteX="0dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/txtLongitude"
+        tools:layout_editor_absoluteX="0dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
         android:orientation="horizontal"
         android:weightSum="2"
         app:layout_constraintBottom_toBottomOf="@+id/rounded_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLongitude"
-        app:layout_constraintVertical_bias="0.34">
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.156">
 
         <Button
-            android:id="@+id/btnAdd"
-            android:layout_width="match_parent"
+            android:id="@+id/btnUpdate"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_margin="8dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="25dp"
             android:layout_weight="1"
             android:background="@drawable/button_background_green1"
-            android:text="Add"
+            android:text="Update"
             android:textAllCaps="false"
-            android:textSize="21dp"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btnBack"
-            android:layout_width="match_parent"
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_margin="8dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="25dp"
             android:layout_weight="1"
             android:background="@drawable/button_background_green1"
-            android:backgroundTint="#EF6FB5"
-            android:gravity="center"
-            android:text="Back"
+            android:text="Delete"
             android:textAllCaps="false"
-            android:textSize="21dp"
             android:textStyle="bold" />
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

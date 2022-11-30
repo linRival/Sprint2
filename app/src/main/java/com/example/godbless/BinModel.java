@@ -2,18 +2,20 @@ package com.example.godbless;
 
 public class BinModel {
 
-    String bin_number, fill_level, location, surl;
+    String bin_number, fill_level, latitude, longitude, surl, status;
 
 
     BinModel()
     {
 
     }
-    public BinModel(String bin_number, String fill_level, String location, String surl) {
+    public BinModel(String bin_number, String fill_level, String latitude, String longitude, String surl, String status) {
         this.bin_number = bin_number;
         this.fill_level = fill_level;
-        this.location = location;
-        this.surl = surl;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.surl=surl;
+        this.status=status;
     }
 
     public String getBin_number() {
@@ -32,12 +34,20 @@ public class BinModel {
         this.fill_level = fill_level;
     }
 
-    public String getLocation() {
-        return location;
+    public String getLatitude() {
+        return latitude;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
     public String getSurl() {
@@ -48,4 +58,11 @@ public class BinModel {
         this.surl = surl;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
